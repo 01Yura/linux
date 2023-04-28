@@ -3,7 +3,7 @@ yura@291417:~$ - значок $ значит из под обычного пол
 type команда
 whereis команда - показывают абсолютный путь до команды исполнителя
 
-Как запускается команда. Сначала система ищет встроена ли она в оболочку (cd), если не находит, то ищет в алиасах (ls), если и там нет, то по порядку ищет в окружении (пременная $PATH)
+Как запускается команда. Сначала система ищет встроена ли она в оболочку (cd), если не находит, то ищет в алиасах (ls), если и там нет, то по порядку ищет в окружении (переменная $PATH, она хранится в памяти)
     yura@291417:~$ type cd
     cd is a shell builtin
     yura@291417:~$ type ls
@@ -23,7 +23,7 @@ hits    command
    2    /usr/bin/ls
     Баш один раз смотрит где файл и потом им пользуется
     hash -r - для очистки хэша 
-    
+
 
 
 cd директория - переместиться в директорию
@@ -233,5 +233,28 @@ oga@uho:~$ ls -lL /dev/cdrom
     команда1 ; команда 2 - выполнять все команды вне зависимости от того как они выполнились
     
     for year in {2015..2020}; do echo $year; for month in {01..12}; do echo $month; done; done
+
+    КРОН 
+     /etc/crontab - общий КРОН
+
+     # Example of job definition:
+# .---------------- minute (0 - 59)
+# |  .------------- hour (0 - 23)
+# |  |  .---------- day of month (1 - 31)
+# |  |  |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+# |  |  |  |  .---- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+# |  |  |  |  |
+# *  *  *  *  * user-name command to be executed
+17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+
+*/2 - каждые 2 минуты
+* 2 * * * * - каждую минуту как стукнет 2 часа ночи (потому что крон запускается раз в минуту)
+1 2 * * * * - вот правильный вариант
+01 02 * * * - или так тоже правильно
+
+crontab -e - редактировать свой локальный кронтаб_файл 
 
 
