@@ -349,6 +349,18 @@ ip r - показать шдюз
     nameserver 1.1.1.1
 ss -tnlp - какие порты доступны на нашем сервере (-t) TCP (-n) numeric (-l) listen (-p) какая служба
 
+/etc/init.d/ - скрипты sysV системы инициализации.
+    [root@291417 ~]# ls -l /etc/init.d/
+    total 40
+    -rw-r--r--. 1 root root 18281 May 22  2020 functions
+    -rwxr-xr-x. 1 root root  4569 May 22  2020 netconsole
+    -rwxr-xr-x. 1 root root  7928 May 22  2020 network
+    -rw-r--r--. 1 root root  1160 Sep  1  2022 README
 
+для upstart нет скрипта системы инициализации, так как Upstart обратно совмещен с sysV
+    [root@291417 ~]# ls -l /etc/rc
+rc0.d/    rc1.d/    rc2.d/    rc3.d/    rc4.d/    rc5.d/    rc6.d/    rc.d/     rc.local
+    тут лежат скрипты для Upstart, но они сылаются на 2 скпипта sysV - netconsole и network
 
-
+ /lib/systemd/system - каталог служб systemd
+  
