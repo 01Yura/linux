@@ -363,4 +363,8 @@ rc0.d/    rc1.d/    rc2.d/    rc3.d/    rc4.d/    rc5.d/    rc6.d/    rc.d/     
     тут лежат скрипты для Upstart, но они сылаются на 2 скпипта sysV - netconsole и network
 
  /lib/systemd/system - каталог служб systemd
-  
+
+ВХОД ПО КЛЮЧАМ SSH
+    Папка в дом директории .ssh, а в ней файл authorized_keys
+    В нем прописано ssh-rsa ключ_в_одну_строку
+    Если без ssh-rsa или ключ не в одну строку, то работать не будет
