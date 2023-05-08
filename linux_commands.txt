@@ -375,6 +375,4 @@ rc0.d/    rc1.d/    rc2.d/    rc3.d/    rc4.d/    rc5.d/    rc6.d/    rc.d/     
         Host Debian
         Hostname 212.192.31.43
         User root
-        ForwardX11 yes
         После этого можно подключаться просто вводя ssh Debian
-        
