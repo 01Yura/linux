@@ -388,3 +388,5 @@ rc0.d/    rc1.d/    rc2.d/    rc3.d/    rc4.d/    rc5.d/    rc6.d/    rc.d/     
     Опции файла /etc/ssh/sshd_config сервера к которому подключаешься - 
         PermitRootLogin yes/no/without-password - можно ли входить рутом по ssh. да/нет/только без пароля (те по ключу)
         PasswordAuthentication yes/no - можно ли подключаться к ssh используя пароль
+
+scp authorized_keys root@194.87.199.75:/root/.ssh - скопировать файл например authorized_keys из текущей папки, директорию указывать через :
