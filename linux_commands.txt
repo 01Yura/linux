@@ -390,3 +390,6 @@ rc0.d/    rc1.d/    rc2.d/    rc3.d/    rc4.d/    rc5.d/    rc6.d/    rc.d/     
         PasswordAuthentication yes/no - можно ли подключаться к ssh используя пароль
 
 scp authorized_keys root@194.87.199.75:/root/.ssh - скопировать файл например authorized_keys из текущей папки, директорию указывать через :
+
+root@Debian:/etc/ssh# ssh-keygen -l -E md5 -f ssh_host_rsa_key.pub 
+3072 MD5:f7:55:20:fe:8f:ed:2f:af:2f:6a:5a:33:7b:51:1f:05 - посмотреть фингерпринт ключа на сервере, который должен высвечиваться намклиенте при первом подключении к серверу 
